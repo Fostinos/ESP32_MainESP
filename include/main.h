@@ -54,7 +54,7 @@
 #define 		ESP_ADDR				6					// ESP MAC Address size (6 Bytes)
 #define 		RESERVED				6					// Reserved Bytes for other sensors (6 Bytes)
 #define 		SLEEP_TIME				30					// Default Sleep Time (in Seconds)
-#define 		ACTIVITY_TIME			20					// Default Activity Time before going to Sleep Mode (in Seconds)
+#define 		ACTIVITY_TIME			5					// Default Activity Time before going to Sleep Mode (in Seconds)
 #define 		s_TO_uS_FACTOR 			1000000 			// Conversion Factor for Seconds to MicroSeconds
 #define 		ms_TO_uS_FACTOR 		1000	 			// Conversion Factor for MiliSeconds to MicroSeconds
 
@@ -113,17 +113,6 @@ const uint8_t broadcastAddresses[ESP_TOTAL][ESP_ADDR] = {
 
 
 /**
- * @fn 					- getWiFiChannel
- * 
- * @brief 				- This function scans WiFi network and return its channel
- * 
- * @param[in] 			- ssid 
- * 
- * @return 				- WiFi channel 
- */
-int32_t getWiFiChannel(const char *ssid);
-
-/**
  * @fn 					- initWiFi
  * 
  * @brief 				- This function initializes WiFi network
@@ -140,27 +129,6 @@ void initWiFi(void);
  * @return 				- none 
  */
 void initESP_NOW(void);
-
-
-/**
- * @fn 					- configFirebase
- * 
- * @brief 				- This function configures Firebase Objects
- * 
- * @return 				- none 
- */
-void configFirebase(void);
-
-
-/**
- * @fn 					- initFirebase
- * 
- * @brief 				- This function initializes Firebase
- * 
- * @return 				- none 
- */
-void initFirebase(void);
-
 
 
 /**
@@ -268,15 +236,25 @@ ESP_Command getESPCommand(void);
 void toggleLED(unsigned long currentTime);
 
 
+
 /**
- * @fn					- storeDataOnCloud
+ * @fn					- sendDataServer
  * 
- * @brief 				- This function store All ESPData on Cloud
+ * @brief 				- This function sends All ESPData to the server
  * 
  * @return				- none
  * 
  */
-void storeDataOnCloud(void);
+void sendDataServer(void);
 
+/**
+ * @fn					- getUARTData
+ * 
+ * @brief 				- This function receives UART Data
+ * 
+ * @return				- none
+ * 
+ */
+void getUARTData(void);
 
 #endif /* __MAIN_H */

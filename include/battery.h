@@ -42,7 +42,7 @@
  * 
  * By default ADC_RESOLUTION = ESP8266_ADC_RESOLUTION
  */
-#define ADC_RESOLUTION                        ESP8266_ADC_RESOLUTION            
+#define ADC_RESOLUTION                        ESP32_ADC_RESOLUTION            
 
 
 
